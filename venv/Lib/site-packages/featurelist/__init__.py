@@ -1,0 +1,78 @@
+import xmlrpclib
+import unittest
+
+apisite = 'http://featurelist.org/api'
+
+class FeatureListProxy(xmlrpclib.ServerProxy):
+  def __init__(self):
+    xmlrpclib.ServerProxy.__init__(self, apisite)
+
+class FeatureList(object):
+  '''
+      Allows API-based access to http://featurelist.org.
+      The apikey during beta allows any number or a default apikey.
+      When it goes live, you'll need your own API key from http://featurelist.org
+  '''
+  def __init__(self, apikey=99990):
+    if apikey==99990:
+      print "Warning: Using the default featurelist.org API key is not recommended. Get one at http://featurelist.org."
+    self.apikey = apikey
+    self.site = FeatureListProxy()
+  def getAllProjects(self):
+    ''' Gets a list of all projects on featurelist
+        >>> all = florg.getAllprojects()
+    '''
+    return self.site.getAllProjects(self.apikey)
+  def getProjectInfo(self, name):
+    ''' Gets general project info for a given project basename
+        >>> details = florg.getProjectInfo("iphone")
+    '''
+    return self.site.getProjectInfo(self.apikey, name)
+  def getProjectFeatures(self, name):
+    ''' Gets a list of features for a given project basename
+        >>> flist = florg.getProjectFeatures("iphone")
+    '''
+    return self.site.getProjectFeatures(self.apikey, name)
+  def submitFeatureRequest(self, username, password, basename, title, description):
+    ''' Submits a feature request to featurelist. Requires a username/password.
+      >>> florg.submitFeatureRequest("TestUserPy", "testuser", "evie", "testing api", "testing description")
+    '''
+    return self.site.submitFeatureRequest(self.apikey, username, password, basename, title, description)
+
+
+class FlorgTests(unittest.TestCase):
+  def setUp(self):
+    self.florg = FeatureList()
+  def tearDown(self):
+    self.florg = None
+    del self.florg
+  def testGetProjectList(self):
+    x = self.florg.getAllProjects()
+    self.failUnless(len(x) > 0)
+    self.failUnless(isinstance(x, list))
+    for proj in x:
+      self.failUnless(isinstance(proj, dict))
+      self.failUnless(proj.has_key("project_name"))
+      self.failUnless(proj.has_key("project_basename"))
+  def testGetProjectInfo(self):
+    proj = self.florg.getAllProjects()[0]
+    self.failUnless(isinstance(proj, dict))
+    self.failUnless(proj.has_key("project_basename"))
+    name = proj["project_basename"]
+    details = self.florg.getProjectInfo(name)
+  def testGetProjectFeatures(self):
+    proj = self.florg.getAllProjects()[0]
+    self.failUnless(isinstance(proj, dict))
+    self.failUnless(proj.has_key("project_basename"))
+    name = proj["project_basename"]
+    details = self.florg.getProjectFeatures(name)
+    self.failUnless(len(details)>0)
+    item = details[0]
+    self.failUnless(len(item["feature_title"]) > 0)
+  def testSubmit(self):
+    proj = self.florg.submitFeatureRequest("TestUserPy", "testuser", "evie", "testing api", "testing description")
+    self.failUnless(proj)
+
+if __name__ == "__main__":
+  unittest.main()
+  
