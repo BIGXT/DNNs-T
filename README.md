@@ -7,7 +7,7 @@ DNNs-T is a deep neural network model that uses trace logs as raw data for fault
 
 * Importing the training sets for each fault
 * Modify the faultnum and the testnum
-* Customized modification of model parameters (available)
+* Customized modification of model parameters (optional)
 * Start training
 
 ##No training set？
