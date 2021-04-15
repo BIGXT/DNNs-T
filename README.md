@@ -38,4 +38,4 @@
 
 ## README(EN)
 
-[README](https://github.com/BIGXT/DNNs-T/blob/main/README_EN/README.md）
+[README(EN)](https://github.com/BIGXT/DNNs-T/blob/main/README_EN/README.md）
