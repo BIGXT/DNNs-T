@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad396ab9-b971-4f0d-87ea-666081ec81f5" name="默认的" comment="" />
+    <list default="true" id="932b895e-5eeb-4877-a49c-a037e33aa1bb" name="默认变更列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +14,15 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1mX7SHmrTum4tHsiEsFMXemUfwX" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1r5fkIOyCwLF1NMBfwrxuw5Td2K" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -22,21 +30,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Python Project\3" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Python Project\3" />
+      <recent name="D:\Python Project\DNNs-Lstm" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="3" />
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="DNNs-Lstm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -47,7 +53,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -56,128 +63,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.test" />
-      </list>
-    </recent_temporary>
   </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\BIGXT\AppData\Roaming\Subversion</configuration>
-    <option name="runUnderTerminal" value="true" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="ad396ab9-b971-4f0d-87ea-666081ec81f5" name="默认的" comment="" />
-      <created>1609628079351</created>
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="932b895e-5eeb-4877-a49c-a037e33aa1bb" name="默认变更列表" comment="" />
+      <created>1618271012569</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1609628079351</updated>
+      <updated>1618271012569</updated>
+      <workItem from="1618271046407" duration="13522000" />
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="270" y="272" key="#xdebugger.XInspectDialog" timestamp="1610171002743">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="270" y="272" key="#xdebugger.XInspectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610171002743" />
-    <state x="715" y="221" key="#xdebugger.evaluate" timestamp="1610307375431">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="715" y="221" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1610307375431" />
-    <state width="1153" height="466" key="DebuggerActiveHint" timestamp="1610318108023">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1153" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1610318108023" />
-    <state width="1899" height="276" key="GridCell.Tab.0.bottom" timestamp="1610798729565">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1610798729565" />
-    <state width="1899" height="276" key="GridCell.Tab.0.center" timestamp="1610798729564">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="276" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1610798729564" />
-    <state width="1899" height="276" key="GridCell.Tab.0.left" timestamp="1610798729564">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="276" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1610798729564" />
-    <state width="1899" height="276" key="GridCell.Tab.0.right" timestamp="1610798729564">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="276" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1610798729564" />
-    <state width="938" height="239" key="GridCell.Tab.1.bottom" timestamp="1610645615558">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="239" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1610645615558" />
-    <state width="938" height="239" key="GridCell.Tab.1.center" timestamp="1610645615558">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="239" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1610645615558" />
-    <state width="938" height="239" key="GridCell.Tab.1.left" timestamp="1610645615558">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="239" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1610645615558" />
-    <state width="938" height="239" key="GridCell.Tab.1.right" timestamp="1610645615558">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="239" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1610645615558" />
-    <state x="653" y="155" key="SettingsEditor" timestamp="1610344434841">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="653" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1610344434841" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1610570417457">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1610570417457" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610575391713">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610575391713" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>267</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>236</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>231</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>226</line>
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>335</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>333</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainning.py</url>
-          <line>303</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>137</line>
-          <option name="timeStamp" value="113" />
+          <url>file://$PROJECT_DIR$/training.py</url>
+          <line>152</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="reader.dialect" />
+        <watch expression="p" />
+        <watch expression="ordata" />
+        <watch expression="p" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DNNs_Lstm$main.coverage" NAME="main 覆盖结果" MODIFIED="1618288334683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
