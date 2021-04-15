@@ -1,20 +1,41 @@
-# DNNs-T
-##What is DNNs-T?
+# 科技资源及服务全局监测及异常诊断构件
+##科技资源及服务全局监测及异常诊断构件是什么?
 
-DNNs-T is a deep neural network model that uses trace logs as raw data for fault diagnosis. DNNs-T is essentially a classifier.
+科技资源及服务全局监测及异常诊断构件是通过开源分布式追踪系统产生并收集服务追踪日志，转化、存储、分析追踪日志，最终产生一个能够基于历史监控日志制定故障判断规则的组件。它能够帮助您找出潜在的异常，并给出产生相似异常的故障，帮助您排查实际产生的故障。
 
-##How to use DNNs-T？
+##我们的构件有什么特色？
 
-* Importing the training sets for each fault
-* Modify the faultnum and the testnum
-* Customize model parameters (optional)
-* Start training
+###兼容已有的开源分布式追踪组件
 
-##No training set？
+您可以使用以下组件作为追踪日志的生产者：
 
-We give a sample training set in the example directory, you just need to move it to the root of the project.
+* [Jaeger](https://github.com/jaegertracing/jaeger)（推荐）
+* [Zipkin](https://github.com/openzipkin/zipkin)
 
-##Want to generate your own training set using trace logs?
+###更为贴合监测的服务：
 
-You can refer to our projects at：
+我们的构件支持使用当前服务所产生的监控数据进行测试，通过构件的转化，能够产生训练样本集。
+
+###基于深度学习的故障诊断规则：
+
+我们使用了一个三层的深度学习网络，用于挖掘故障与监测数据间潜在的联系。
+
+##如何使用我们的构件？
+
+* 为每一个错误导入训练集
+* 定义导入的故障数量与测试数量
+* 自定义模型参数（可选）
+* 开始训练
+
+##想要测试一下？
+
+我们在项目中给出了一个样例数据集，您只需要将其移动到项目的根目录即可使用。
+
+##如何将您系统的追踪日志转化为训练集?
+
+您可以关注我们的另一个项目：
 [Tracelogstotraining](https://github.com/BIGXT/Tracelogstotraining) 
+
+##README(EN)
+
+[README](./README_EN/README.md）
