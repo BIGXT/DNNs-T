@@ -34,7 +34,12 @@
 ## 如何将您系统的追踪日志转化为训练集?
 
 您可以关注我们的另一个项目：
-[Tracelogstotraining](https://github.com/BIGXT/Tracelogstotraining) 
+[TL2TS](https://github.com/BIGXT/TL2TS) 
+[TL2TS-Data](https://github.com/BIGXT/TL2TS-Data) 
+
+## 未来的计划?
+
+正在开发中的分支DNNs-Lstm(https://github.com/BIGXT/DNNs-T/tree/lstm)，这是一个将lstm融入故障检测与诊断的项目。
 
 ## README(EN)
 
