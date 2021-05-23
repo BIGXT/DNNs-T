@@ -1,78 +1,103 @@
-# 这是一个示例 Python 脚本。
+import file
+import torchsummary
+from torch.autograd import Variable
 
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
-import csv
-import training
-from sklearn.model_selection import train_test_split
-
-
-
-def TxtToCsv(rn,fn):
-    import csv
-    for i in range(1,rn+1):
-        for j in range(1, fn+1):
-            inputfile = 'r'+str(i)+'-'+str(j)+'fault.txt'
-            outputfile = 'r'+str(i)+'-'+str(j)+'fault.csv'
-            row = ['traceID', 'callerServiceName', 'callerSpanID', 'calledServiceName', 'calledSpanID', 'duration',
-                   'TOF']
-            csvfile = open(outputfile, 'w', newline='')
-            writer = csv.writer(csvfile)
-            writer.writerow(row)
-            lines = open(inputfile, 'r', encoding='utf-8').readlines()
-            for line in lines:
-                csvfile.write(line)
-            csvfile.close()
-
-def CsvToTraining(faultnum):
-    import mydata
-    data1 = None
-    # ordata=mydata.pretrainning('training.csv')	#数据读取及标准化
-    # X=ordata[0].tolist()
-    # Y=ordata[1]
-
-    for i in range(1, faultnum + 1):
-        ordata = []
-        for j in range(1, 4):
-            ordata.append(mydata.pretrainning('r' + str(i) + '-' + str(j) + 'fault.csv'))
-
-            import csv
-            f1 = open('X.csv', 'a', newline='')
-            csv_writer1 = csv.writer(f1)
-            f2 = open('Y.csv', 'a', newline='')
-            csv_writer2 = csv.writer(f2)
-            for p in ordata[j - 1][0]:
-                csv_writer1.writerow(p)
-            for q in ordata[j - 1][1]:
-                csv_writer2.writerow(q)
-            f1.close()
-            f2.close()
-
-
-
-
-
-
-
-# 按间距中的绿色按钮以运行脚本。
 if __name__ == '__main__':
-    #TxtToCsv(10,3)  #数据文件格式转换
-    #CsvToTraining(10)   #数据集
-    X=[]
-    Y=[]
-    file = open('X.csv')
-    reader = csv.reader(file) # 逐行读取信息
-    for row in reader:
-        X.append(row)
-    file.close()
-    file = open('Y.csv')
-    reader = csv.reader(file) # 逐行读取信息
-    for row in reader:
-        Y.append(row)
-    file.close()
-    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.1, random_state=0)
-    #training.l1(X_train, X_test, y_train, y_test)
-    training.l2()
+    import torch
+    from torch import nn
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    X = file.readcsv('X.csv')
+    y = file.readcsv('Y.csv')
+
+    # X, y = torch.tensor(X.values), torch.tensor(y.values)
+    '''
+    with open("data.csv", "r", encoding="utf-8") as f:
+        data = f.read()
+    data = [row.split(',') for row in data.split("\n")]
+
+    value = [int(each[1]) for each in data]
+    '''
+
+    data = X.values.tolist()
+    value = y.values.tolist()
+
+    li_x = []
+    li_y = []
+    seq = 2
+    # 因为数据集较少，序列长度太长会影响结果
+    for i in range(len(data) - seq):
+        li_x.append(value[i: i + seq])
+        li_y.append(value[i + seq])
+
+    # 分训练和测试集
+    train_x = (torch.tensor(li_x[:-30]).float() / 1000.).reshape(-1, seq, 17).to(device)
+    train_y = (torch.tensor(li_y[:-30]).float() / 1000.).reshape(-1, 17).to(device)
+
+    test_x = (torch.tensor(li_x[-30:]).float() / 1000.).reshape(-1, seq, 17).to(device)
+    test_y = (torch.tensor(li_y[-30:]).float() / 1000.).reshape(-1, 17).to(device)
 
 
+    class Net(nn.Module):
 
+        def __init__(self):
+            super(Net, self).__init__()
+            input_size = 17
+            hidden_size = 32
+            num_layers = 3
+            batch_first = True
+            dropout = 0 #0.5
+            self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_size, num_layers=num_layers,
+                                batch_first=batch_first, dropout=dropout)
+            # 输入格式是17,表示17个特征，输出隐藏层大小是32，对于序列比较短的数据num_layers不要设置大，否则效果会变差
+            # 原来的输入格式是：(seq, batch, shape)，设置batch_first=True以后，输入格式就可以改为：(batch, seq, shape)，更符合平常使用的习惯
+            self.linear = nn.Linear(hidden_size * seq, input_size)
+
+        def forward(self, x):
+            x, (h, c) = self.lstm(x)
+            x = x.reshape(-1, 32 * seq)
+            x = self.linear(x)
+            return x
+
+
+    model = Net().to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.003)
+    loss_fun = nn.MSELoss()
+
+    model.train()
+    for epoch in range(300):
+        output = model(train_x)
+
+        loss = loss_fun(output, train_y)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        if epoch % 50 == 0 and epoch > 0:
+            test_loss = loss_fun(model(test_x), test_y)
+            print("epoch:{}, loss:{}, test_loss: {}".format(epoch, loss, test_loss))
+
+    model.eval()
+
+    result = li_x[0][:seq - 1] + list(((model(train_x).data.reshape(-1, 17))* 1000).tolist() ) + list(
+        ((model(test_x).data.reshape(-1, 17))* 1000).tolist() )
+    # 通过模型计算预测结果并解码后保存到列表里，因为预测是从第seq个开始的，所有前面要加seq-1条数据
+    # print(result)
+
+    # 网络参数可视化
+    # params = model.state_dict()
+
+    torchsummary.summary(model, (1000, 17))
+
+    # print(model(test_x))
+    '''
+
+    plt.plot(value, label="real")
+    # 原来的走势
+    plt.plot(result, label="pred")
+    # 模型预测的走势
+    plt.legend(loc='best')
+    plt.show()
+    '''
