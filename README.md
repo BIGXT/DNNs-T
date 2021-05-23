@@ -39,7 +39,7 @@
 
 ## 未来的计划?
 
-正在开发中的分支DNNs-Lstm(https://github.com/BIGXT/DNNs-T/tree/lstm)，这是一个将lstm融入故障检测与诊断的项目。
+正在开发中的分支[DNNs-Lstm](https://github.com/BIGXT/DNNs-T/tree/lstm)，这是一个将lstm融入故障检测与诊断的项目。
 
 ## README(EN)
 
